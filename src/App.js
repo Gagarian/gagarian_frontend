@@ -1,9 +1,9 @@
 import React from "react";
-
+import "./App.css";
 function App() {
 	return (
 		<div className='App'>
-			<h1>Inti Projects</h1>
+			<h1 className='h1 text-cyan-500'>Inti Projects</h1>
 		</div>
 	);
 }

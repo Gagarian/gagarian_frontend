@@ -13,6 +13,14 @@ function App() {
 					<Route path='signup' element={<Signup />} />
 					<Route path='login' element={<Login />} />
 					<Route
+						path='/catagories/:id'
+						element={
+							<main style={{ padding: "1rem" }}>
+								<p>Catatgores !</p>
+							</main>
+						}
+					/>
+					<Route
 						path='*'
 						element={
 							<main style={{ padding: "1rem" }}>

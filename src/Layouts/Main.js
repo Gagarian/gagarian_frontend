@@ -5,11 +5,13 @@ import Footer from "../Components/Footer";
 const Main = ({ children }) => {
 	return (
 		<>
-			<Header class='h-10 ' />
-			<main class='flex-grow'>{children}</main>
+			<Header class='h-10  z-50' />
+			<main class='flex-grow '>
+				{/* sadf */}
+				{children}
+			</main>
 			<footer
 				class='
-             fixed
              inset-x-0
              bottom-0
              '>

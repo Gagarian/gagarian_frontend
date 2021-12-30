@@ -10,4 +10,17 @@ function getCatagories() {
 	// return new
 }
 
-export { getCatagories };
+// function loginUser(username, password) {
+function userLogin() {
+	var config = {
+		method: "post",
+		url: `http://127.0.0.1:8000/rest-auth/login/`,
+		data: {
+			username: "teyouale",
+			password: "teyouale",
+		},
+	};
+	return axios(config);
+}
+
+export { getCatagories, userLogin };

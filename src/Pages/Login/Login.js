@@ -1,6 +1,12 @@
 import React from "react";
-
+import { useSelector, useDispatch } from "react-redux";
+import { loginUser } from "../../Services/Slices/userSlice";
 const Login = () => {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(loginUser());
+	}, [dispatch]);
 	return (
 		<div>
 			<section class='flex flex-col md:flex-row h-screen items-center'>

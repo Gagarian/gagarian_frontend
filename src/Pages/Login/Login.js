@@ -1,6 +1,39 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+	loginUser,
+	userSelector,
+	clearState,
+} from "../../Services/Slices/userSlice";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 const Login = () => {
+	const dispatch = useDispatch();
+	const { register, handleSubmit } = useForm();
+
+	const { isFetching, isError, errorMessage, isSuccess } =
+		useSelector(userSelector);
+	const onSubmit = (data) => {
+		dispatch(loginUser(data));
+	};
+	useEffect(() => {
+		console.log("adfadsf");
+		// return () => {
+		//   dispatch(clearState());
+		// };
+	}, []);
+	useEffect(() => {
+		// console.log("dfsd");
+		if (isError) {
+			toast.error(errorMessage);
+			dispatch(clearState());
+		}
+
+		if (isSuccess) {
+			// history.push("/");
+			toast.success("Login");
+		}
+	}, [isError, isSuccess]);
 	return (
 		<div>
 			<section class='flex flex-col md:flex-row h-screen items-center'>
@@ -20,14 +53,14 @@ const Login = () => {
 							Log in to your account
 						</h1>
 
-						<form class='mt-6' action='#' method='POST'>
+						<form class='mt-6' onSubmit={handleSubmit(onSubmit)}>
 							<div>
 								<label class='block text-gray-700'>Email Address</label>
 								<input
-									type='email'
-									name=''
+									type='username'
+									{...register("username")}
 									id=''
-									placeholder='Enter Email Address'
+									placeholder='Enter Username'
 									class='w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none'
 									autofocus
 									autocomplete
@@ -39,7 +72,7 @@ const Login = () => {
 								<label class='block text-gray-700'>Password</label>
 								<input
 									type='password'
-									name=''
+									{...register("password")}
 									id=''
 									placeholder='Enter Password'
 									minlength='6'

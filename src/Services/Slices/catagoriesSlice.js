@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getCatagories } from "../../api/api";
-import { logger } from "workbox-core/_private";
 const initialState = {
 	movies: [],
 };

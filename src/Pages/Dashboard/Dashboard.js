@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Main from "../../Layouts/Main";
 import DashboardCard from "../../Components/DashboardCard";
-import SubHeader from "../../Components/SubHeader";
+import { useSelector, useDispatch } from "react-redux";
+import { retrievecatagories } from "../../Services/Slices/catagoriesSlice";
 const Dashboard = () => {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(retrievecatagories());
+		// console.log(x);
+	}, [dispatch]);
 	return (
 		<div>
 			<Main>

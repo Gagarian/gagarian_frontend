@@ -1,46 +1,62 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const SubHeader = () => {
-	let navigate = useNavigate();
+  let navigate = useNavigate();
+  return (
+    <nav class="bg-white shadow dark:bg-gray-800">
+      <div class="container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300">
+        <a
+          href="#"
+          onClick={() => navigate(`/Catagories/4`)}
+          class="text-gray-800 transition-colors duration-200 transform  hover:border-blue-500 border-b-2  mx-1.5 sm:mx-6"
+        >
+          Home
+        </a>
 
-	return (
-		<div>
-			<div class=' flex items-center justify-center py-3 mt-3 -mx-3 overflow-y-auto whitespace-nowrap scroll-hidden'>
-				<a
-					class='mx-4 text-sm leading-5 text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0'
-					onClick={() => navigate(`/Catagories/2`)}>
-					እንጀራ Injera
-				</a>
-				<a
-					class='mx-4 text-sm leading-5 text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0'
-					href='#'
-					onClick={() => navigate(`/Catagories/3`)}>
-					{" "}
-					ዳቦ Bread
-				</a>
-				<a
-					class='mx-4 text-sm leading-5 text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0'
-					href='#'
-					onClick={() => navigate(`/Catagories/4`)}>
-					{" "}
-					ጠላ Tela
-				</a>
-				<a
-					class='mx-4 text-sm leading-5 text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0'
-					href='#'
-					onClick={() => navigate(`/Catagories/5`)}>
-					ጠጅ Tej
-				</a>
-				<a
-					class='mx-4 text-sm leading-5 text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:underline md:my-0'
-					href='#'
-					onClick={() => navigate(`/Catagories/6`)}>
-					Other
-				</a>
-			</div>
-		</div>
-	);
+        <a
+          href="#"
+          onClick={() => navigate(`/Catagories/4`)}
+          class="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
+        >
+          እንጀራ (Injera)
+        </a>
+
+        <a
+          href="#"
+          onClick={() => navigate(`/Catagories/4`)}
+          class="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
+        >
+          ዳቦ (Bread)
+        </a>
+
+        <a
+          href="#"
+          onClick={() => navigate(`/Catagories/4`)}
+          class="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
+        >
+          ጠላ (Tela)
+        </a>
+
+        <a
+          href="#"
+          onClick={() => navigate(`/Catagories/4`)}
+          class="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
+        >
+          ጠጅ (Tej)
+        </a>
+
+        <a
+          href="#"
+          onClick={() => navigate(`/Catagories/4`)}
+          class="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
+        >
+          Other
+        </a>
+      </div>
+    </nav>
+  );
 };
 
 export default SubHeader;

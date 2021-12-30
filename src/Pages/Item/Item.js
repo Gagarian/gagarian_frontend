@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import Main from "../../Layouts/Main";
-import DashboardCard from "../../Components/DashboardCard";
-import SubHeader from "../../Components/SubHeader";
+import ItemCard from "../../Components/ItemCard";
 import { useSelector, useDispatch } from "react-redux";
 import { retrievecatagories } from "../../Services/Slices/catagoriesSlice";
-const Dashboard = () => {
-  const dispatch = useDispatch();
 
+const Item = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(retrievecatagories());
     // console.log(x);
@@ -14,16 +13,10 @@ const Dashboard = () => {
   return (
     <div>
       <Main>
-        <SubHeader />
         <section class="text-gray-600 body-font">
           <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-wrap -m-4">
-              <DashboardCard />
-              <DashboardCard />
-              <DashboardCard />
-              <DashboardCard />
-              <DashboardCard />
-              <DashboardCard />
+              <ItemCard />
             </div>
           </div>
         </section>
@@ -32,4 +25,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Item;

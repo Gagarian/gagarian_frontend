@@ -1,10 +1,12 @@
 import React from "react";
 import Main from "../../Layouts/Main";
 import CatagoriesCard from "../../Components/CatagoriesCard";
+import SubHeader from "../../Components/SubHeader";
 const Catagories = () => {
   return (
     <div>
       <Main>
+        <SubHeader />
         <section class="text-gray-400  body-font overflow-hidden">
           <div class="container px-5 py-24 mx-auto">
             <div class="-my-8 divide-y-2 divide-gray-800">

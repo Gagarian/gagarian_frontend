@@ -5,6 +5,7 @@ import Signup from "./Pages/Signup/Signup";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import "./App.css";
 import Catagories from "./Pages/Catagories/Catagories";
+import Item from "./Pages/Item/Item";
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
 
           <Route path="login" element={<Login />} />
           <Route path="/catagories/:id" element={<Catagories />} />
+          <Route path="/Item/:id" element={<Item />} />
           <Route
             path="*"
             element={

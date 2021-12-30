@@ -10,15 +10,19 @@ function getCatagories() {
 	// return new
 }
 
-// function loginUser(username, password) {
-function userLogin() {
+function userLogin(username, password) {
+	var data = JSON.stringify({
+		username: username,
+		password: password,
+	});
+	console.log(data);
 	var config = {
 		method: "post",
 		url: `http://127.0.0.1:8000/rest-auth/login/`,
-		data: {
-			username: "teyouale",
-			password: "teyouale",
+		headers: {
+			"Content-Type": "application/json",
 		},
+		data: data,
 	};
 	return axios(config);
 }

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const CatagoriesCard = () => {
   let navigate = useNavigate();
   return (
-    <div class="p-4 md:w-1/3" onClick={() => navigate(`/item/2`)}>
+    <div class="p-4" onClick={() => navigate(`/item/2`)}>
       <section class="text-gray-600 body-font overflow-hidden">
         <div class="container px-5 py-24 mx-auto">
           <div class="lg:w-4/5 mx-auto flex flex-wrap">

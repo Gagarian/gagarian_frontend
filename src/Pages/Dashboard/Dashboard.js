@@ -22,9 +22,11 @@ const Dashboard = ({ toggle, handleToggle }) => {
 				<section class='text-gray-600 body-font'>
 					<div class='container px-5 py-24 mx-auto'>
 						<div class='flex flex-wrap -m-4'>
-							{result.map((item, index) => (
-								<DashboardCard key={index} item={item} />
-							))}
+							{result !== null
+								? result.map((item, index) => (
+										<DashboardCard key={index} item={item} />
+								  ))
+								: ""}
 						</div>
 					</div>
 				</section>

@@ -1,62 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
-const SubHeader = () => {
-  let navigate = useNavigate();
-  return (
-    <nav class="bg-white shadow dark:bg-gray-800">
-      <div class="container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300">
-        <a
-          href="#"
-          onClick={() => navigate(`/Catagories/4`)}
-          class="text-gray-800 transition-colors duration-200 transform  hover:border-blue-500 border-b-2  mx-1.5 sm:mx-6"
-        >
-          Home
-        </a>
+import { useParams } from "react-router-dom";
+const SubHeader = ({ toggle, handleTG }) => {
+	let navigate = useNavigate();
+	const handleToggle = (index) => {
+		handleTG(index);
+	};
 
-        <a
-          href="#"
-          onClick={() => navigate(`/Catagories/4`)}
-          class="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
-        >
-          እንጀራ (Injera)
-        </a>
-
-        <a
-          href="#"
-          onClick={() => navigate(`/Catagories/4`)}
-          class="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
-        >
-          ዳቦ (Bread)
-        </a>
-
-        <a
-          href="#"
-          onClick={() => navigate(`/Catagories/4`)}
-          class="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
-        >
-          ጠላ (Tela)
-        </a>
-
-        <a
-          href="#"
-          onClick={() => navigate(`/Catagories/4`)}
-          class="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
-        >
-          ጠጅ (Tej)
-        </a>
-
-        <a
-          href="#"
-          onClick={() => navigate(`/Catagories/4`)}
-          class="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
-        >
-          Other
-        </a>
-      </div>
-    </nav>
-  );
+	return (
+		<div>
+			<div class=' flex items-center justify-center py-3 mt-3 -mx-3 overflow-y-auto whitespace-nowrap scroll-hidden'>
+				<div class='tabs'>
+					<a
+						onClick={() => {
+							handleToggle(0);
+							// navigate(`/`);
+						}}
+						class={`${
+							toggle === 0 ? "tab-active" : " "
+						} tab  tab-lg tab-lifted`}>
+						All
+					</a>
+					<a
+						onClick={() => {
+							handleToggle(1);
+						}}
+						class={`${
+							toggle === 1 ? "tab-active" : " "
+						} tab  tab-lg tab-lifted`}>
+						እንጀራ Injera
+					</a>
+					<a
+						onClick={() => {
+							handleToggle(2);
+						}}
+						class={`${
+							toggle === 2 ? "tab-active" : " "
+						} tab  tab-lg tab-lifted`}>
+						ዳቦ Bread
+					</a>
+					<a
+						onClick={() => {
+							handleToggle(3);
+						}}
+						class={`${
+							toggle === 3 ? "tab-active" : " "
+						} tab  tab-lg tab-lifted`}>
+						ጠላ Tela
+					</a>
+					<a
+						onClick={() => {
+							handleToggle(4);
+						}}
+						class={`${
+							toggle === 4 ? "tab-active" : " "
+						} tab  tab-lg tab-lifted`}>
+						Other
+					</a>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default SubHeader;

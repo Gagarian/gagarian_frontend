@@ -15,7 +15,7 @@ function userLogin(username, password) {
 		username: username,
 		password: password,
 	});
-	console.log(data);
+
 	var config = {
 		method: "post",
 		url: `http://127.0.0.1:8000/rest-auth/login/`,
@@ -27,4 +27,15 @@ function userLogin(username, password) {
 	return axios(config);
 }
 
-export { getCatagories, userLogin };
+function getAllProducts() {
+	var config = {
+		method: "get",
+		url: "http://127.0.0.1:8000/products/",
+		// headers: {
+		// 	"Content-Type": "application/json",
+		// },
+	};
+	return axios(config);
+}
+
+export { getCatagories, userLogin, getAllProducts };

@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../Assets/logo.svg";
 
 const Footer = () => {
 	return (
@@ -32,6 +33,7 @@ const Footer = () => {
 							</div>
 						</div>
 					</div>
+					<img class='w-70 ' src={logo} alt='logo' />
 				</div>
 				<div class='mt-28 flex flex-col md:flex-row md:justify-between items-center text-sm text-gray-400'>
 					<p class='order-2 md:order-1 mt-8 md:mt-0'>

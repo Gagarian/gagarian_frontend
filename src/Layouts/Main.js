@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-const Main = ({ children }) => {
+import SubHeader from "../Components/SubHeader";
+import { useNavigate } from "react-router-dom";
+
+const Main = ({ children, toggle, handleToggle }) => {
+	console.log(toggle);
 	return (
 		<>
 			<Header class='h-10  z-50' />
+			<SubHeader toggle={toggle} handleTG={handleToggle} />
 			<main class='flex-grow '>
 				{/* sadf */}
 				{children}

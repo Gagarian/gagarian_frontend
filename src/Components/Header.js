@@ -1,9 +1,19 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { userSelector } from "../Services/Slices/userSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { userSelector, clearState } from "../Services/Slices/userSlice";
+import { ShoppingCart } from "@material-ui/icons";
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { isSuccess } = useSelector(userSelector);
+	const dispatch = useDispatch();
+
+	const handleLogout = () => {
+		// console.log("Logout");
+		// localStorage.setItem("token", response.data.key);
+		// locaremoveItem()
+		dispatch(clearState());
+		localStorage.removeItem("token");
+	};
 	return (
 		<div class='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
 			<div class='relative flex items-center justify-between'>
@@ -111,23 +121,44 @@ const Header = () => {
 									/>
 								</svg>
 							</button>
+							<div class='m-6 indicator'>
+								<div class='indicator-item badge badge-primary'>2</div>
+								<ShoppingCart />
+								{/* <div class='grid w-32 h-32 bg-base-300 place-items-center'> */}
+								{/* content */}
+								{/* </div> */}
+							</div>
 
-							<button
-								type='button'
-								class='flex items-center focus:outline-none'
-								aria-label='toggle profile dropdown'>
-								<div class='w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full'>
-									<img
-										src='https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80'
-										class='object-cover w-full h-full'
-										alt='avatar'
-									/>
+							{/* <IconButton
+								component={Link}
+								to='/cart'
+								aria-label='Show cart items'
+								color='inherit'>
+								<Badge badgeContent={totalItems} color='secondary'></Badge>
+							</IconButton> */}
+							<p>Cart</p>
+
+							<div class='dropdown dropdown-end'>
+								<div tabindex='0' class='btn btn-ghost rounded-btn'>
+									<div class='w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full'>
+										<img
+											src='https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80'
+											class='object-cover w-full h-full'
+											alt='avatar'
+										/>
+									</div>
 								</div>
-
-								<h3 class='mx-2 text-sm font-medium text-gray-700 dark:text-gray-200 md:hidden'>
-									Khatab wedaa
-								</h3>
-							</button>
+								<ul
+									tabindex='0'
+									class='p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52'>
+									<li>
+										<a>Setting</a>
+									</li>
+									<li>
+										<a onClick={handleLogout}>Logout</a>
+									</li>
+								</ul>
+							</div>
 						</li>
 					)}
 				</ul>

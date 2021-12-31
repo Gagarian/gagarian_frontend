@@ -1,80 +1,135 @@
 import React, { useState } from "react";
-
+import { useSelector } from "react-redux";
+import { userSelector } from "../Services/Slices/userSlice";
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+	const { isSuccess } = useSelector(userSelector);
 	return (
 		<div class='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
 			<div class='relative flex items-center justify-between'>
-				<a
-					href='/'
-					aria-label='Company'
-					title='Company'
-					class='inline-flex items-center'>
-					<svg
-						class='w-8 text-deep-purple-accent-400'
-						viewBox='0 0 24 24'
-						strokeLinejoin='round'
-						strokeWidth='2'
-						strokeLinecap='round'
-						strokeMiterlimit='10'
-						stroke='currentColor'
-						fill='none'>
-						<rect x='3' y='1' width='7' height='12' />
-						<rect x='3' y='17' width='7' height='6' />
-						<rect x='14' y='1' width='7' height='6' />
-						<rect x='14' y='11' width='7' height='12' />
-					</svg>
-					<span class='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
-						Company
-					</span>
-				</a>
+				<div class='flex items-center'>
+					<a
+						href='/'
+						aria-label='Company'
+						title='Company'
+						class='inline-flex items-center mr-8'>
+						<svg
+							class='w-8 text-deep-purple-accent-400'
+							viewBox='0 0 24 24'
+							strokeLinejoin='round'
+							strokeWidth='2'
+							strokeLinecap='round'
+							strokeMiterlimit='10'
+							stroke='currentColor'
+							fill='none'>
+							<rect x='3' y='1' width='7' height='12' />
+							<rect x='3' y='17' width='7' height='6' />
+							<rect x='14' y='1' width='7' height='6' />
+							<rect x='14' y='11' width='7' height='12' />
+						</svg>
+						<span class='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
+							Company
+						</span>
+					</a>
+					<ul class='flex items-center hidden space-x-8 lg:flex'>
+						<li>
+							<a
+								href='/'
+								aria-label='Our product'
+								title='Our product'
+								class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+								Product
+							</a>
+						</li>
+						<li>
+							<a
+								href='/'
+								aria-label='Our product'
+								title='Our product'
+								class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+								Features
+							</a>
+						</li>
+						<li>
+							<a
+								href='/'
+								aria-label='Product pricing'
+								title='Product pricing'
+								class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+								Pricing
+							</a>
+						</li>
+						<li>
+							<a
+								href='/'
+								aria-label='About us'
+								title='About us'
+								class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+								About us
+							</a>
+						</li>
+					</ul>
+				</div>
 				<ul class='flex items-center hidden space-x-8 lg:flex'>
-					<li>
-						<a
-							href='/'
-							aria-label='Our product'
-							title='Our product'
-							class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
-							Product
-						</a>
-					</li>
-					<li>
-						<a
-							href='/'
-							aria-label='Our product'
-							title='Our product'
-							class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
-							Features
-						</a>
-					</li>
-					<li>
-						<a
-							href='/'
-							aria-label='Product pricing'
-							title='Product pricing'
-							class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
-							Pricing
-						</a>
-					</li>
-					<li>
-						<a
-							href='/'
-							aria-label='About us'
-							title='About us'
-							class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
-							About us
-						</a>
-					</li>
-					<li>
-						<a
-							href='/login'
-							class='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
-							aria-label='Sign in'
-							title='Sign in'>
-							Sign IN
-						</a>
-					</li>
+					{!isSuccess ? (
+						<>
+							<li>
+								<a
+									href='/login'
+									aria-label='Sign in'
+									title='Sign in'
+									class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+									Sign in
+								</a>
+							</li>
+							<li>
+								<a
+									href='/'
+									class='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
+									aria-label='Sign up'
+									title='Sign up'>
+									Sign up
+								</a>
+							</li>
+						</>
+					) : (
+						<li class='flex items-center mt-4 md:mt-0'>
+							<button
+								class='hidden mx-4 text-gray-600 transition-colors duration-200 transform md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none'
+								aria-label='show notifications'>
+								<svg
+									class='w-6 h-6'
+									viewBox='0 0 24 24'
+									fill='none'
+									xmlns='http://www.w3.org/2000/svg'>
+									<path
+										d='M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9'
+										stroke='currentColor'
+										stroke-width='2'
+										stroke-linecap='round'
+										stroke-linejoin='round'
+									/>
+								</svg>
+							</button>
+
+							<button
+								type='button'
+								class='flex items-center focus:outline-none'
+								aria-label='toggle profile dropdown'>
+								<div class='w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full'>
+									<img
+										src='https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80'
+										class='object-cover w-full h-full'
+										alt='avatar'
+									/>
+								</div>
+
+								<h3 class='mx-2 text-sm font-medium text-gray-700 dark:text-gray-200 md:hidden'>
+									Khatab wedaa
+								</h3>
+							</button>
+						</li>
+					)}
 				</ul>
 				<div class='lg:hidden'>
 					<button
@@ -181,11 +236,20 @@ const Header = () => {
 										</li>
 										<li>
 											<a
+												href='/login'
+												aria-label='Sign in'
+												title='Sign in'
+												class='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+												Sign in
+											</a>
+										</li>
+										<li>
+											<a
 												href='/'
 												class='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
-												aria-label='Sign in'
-												title='Sign in'>
-												Sign in
+												aria-label='Sign up'
+												title='Sign up'>
+												Sign up
 											</a>
 										</li>
 									</ul>

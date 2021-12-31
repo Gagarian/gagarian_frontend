@@ -7,8 +7,11 @@ import {
 } from "../../Services/Slices/userSlice";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
 	const dispatch = useDispatch();
+	let navigate = useNavigate();
 	const { register, handleSubmit } = useForm();
 
 	const { isFetching, isError, errorMessage, isSuccess } =
@@ -31,6 +34,9 @@ const Login = () => {
 
 		if (isSuccess) {
 			// history.push("/");
+			// {
+			// }
+			navigate("/");
 			toast.success("Login");
 		}
 	}, [isError, isSuccess]);

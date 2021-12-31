@@ -38,4 +38,21 @@ function getAllProducts() {
 	return axios(config);
 }
 
-export { getCatagories, userLogin, getAllProducts };
+function userRegistation(username, email, password) {
+	var data = {
+		username: username,
+		email: email,
+		password1: password,
+		password2: password,
+	};
+	var config = {
+		method: "post",
+		url: "http://127.0.0.1:8000/rest-auth/registration/",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		data: data,
+	};
+	return axios(config);
+}
+export { getCatagories, userLogin, getAllProducts, userRegistation };

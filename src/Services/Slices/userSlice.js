@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { userLogin } from "../../api/api";
+import { userLogin, userRegistation } from "../../api/api";
 
 const initialState = {
 	username: null,
@@ -24,7 +24,20 @@ export const loginUser = createAsyncThunk(
 		}
 	},
 );
-// export const registerUser =
+export const registerUser = createAsyncThunk(
+	"users/signin",
+	async ({ username, password, email }, { rejectWithValue }) => {
+		try {
+			const response = await userRegistation(username, password, email);
+			localStorage.setItem("token", response.data.key);
+			// console.log(response);
+
+			return response.data;
+		} catch (error) {
+			return rejectWithValue(error);
+		}
+	},
+);
 const userSlice = createSlice({
 	name: "user",
 	initialState: initialState,
@@ -49,6 +62,25 @@ const userSlice = createSlice({
 			state.errorMessage = payload.message;
 		},
 		[loginUser.fulfilled]: (state, { payload }) => {
+			return {
+				...state,
+				token: payload,
+				username: "teyouale",
+				isSuccess: true,
+				isError: false,
+			};
+		},
+		[userRegistation.pending]: (state) => {
+			state.isFetching = true;
+			state.isSuccess = false;
+		},
+		[userRegistation.rejected]: (state, { payload }) => {
+			state.isFetching = false;
+			state.isError = true;
+			state.isSuccess = false;
+			state.errorMessage = payload.message;
+		},
+		[userRegistation.fulfilled]: (state, { payload }) => {
 			return {
 				...state,
 				token: payload,

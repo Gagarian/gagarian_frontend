@@ -17,7 +17,7 @@ const ItemCard = () => {
               BRAND NAME
             </h2>
             <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
-              The Catcher in the Rye
+              Injera
             </h1>
             <div class="flex mb-4">
               <span class="flex items-center">

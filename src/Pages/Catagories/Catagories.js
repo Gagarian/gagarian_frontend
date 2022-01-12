@@ -6,9 +6,9 @@ const Catagories = ({ toggle, handleToggle }) => {
 	return (
 		<div>
 			<Main toggle={toggle} handleToggle={handleToggle}>
-				<section class='text-gray-400  body-font overflow-hidden'>
-					<div class='container px-5 py-24 mx-auto'>
-						<div class='-my-8 divide-y-2 divide-gray-800'>
+				<section className='text-gray-400  body-font overflow-hidden'>
+					<div className='container px-5 py-24 mx-auto'>
+						<div className='-my-8 divide-y-2 divide-gray-800'>
 							<CatagoriesCard />
 							<CatagoriesCard />
 							<CatagoriesCard />

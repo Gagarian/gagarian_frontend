@@ -10,14 +10,14 @@ const SubHeader = ({ toggle, handleTG }) => {
 
 	return (
 		<div>
-			<div class=' flex items-center justify-center py-3 mt-3 -mx-3 overflow-y-auto whitespace-nowrap scroll-hidden'>
-				<div class='tabs'>
+			<div className=' flex items-center justify-center py-3 mt-3 -mx-3 overflow-y-auto whitespace-nowrap scroll-hidden'>
+				<div className='tabs'>
 					<a
 						onClick={() => {
 							handleToggle(0);
 							// navigate(`/`);
 						}}
-						class={`${
+						className={`${
 							toggle === 0 ? "tab-active" : " "
 						} tab  tab-lg tab-lifted`}>
 						All
@@ -26,7 +26,7 @@ const SubHeader = ({ toggle, handleTG }) => {
 						onClick={() => {
 							handleToggle(1);
 						}}
-						class={`${
+						className={`${
 							toggle === 1 ? "tab-active" : " "
 						} tab  tab-lg tab-lifted`}>
 						እንጀራ Injera
@@ -35,7 +35,7 @@ const SubHeader = ({ toggle, handleTG }) => {
 						onClick={() => {
 							handleToggle(2);
 						}}
-						class={`${
+						className={`${
 							toggle === 2 ? "tab-active" : " "
 						} tab  tab-lg tab-lifted`}>
 						ዳቦ Bread
@@ -44,7 +44,7 @@ const SubHeader = ({ toggle, handleTG }) => {
 						onClick={() => {
 							handleToggle(3);
 						}}
-						class={`${
+						className={`${
 							toggle === 3 ? "tab-active" : " "
 						} tab  tab-lg tab-lifted`}>
 						ጠላ Tela
@@ -53,7 +53,7 @@ const SubHeader = ({ toggle, handleTG }) => {
 						onClick={() => {
 							handleToggle(4);
 						}}
-						class={`${
+						className={`${
 							toggle === 4 ? "tab-active" : " "
 						} tab  tab-lg tab-lifted`}>
 						Other

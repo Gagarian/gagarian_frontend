@@ -9,14 +9,14 @@ const Main = ({ children, toggle, handleToggle }) => {
 	console.log(toggle);
 	return (
 		<>
-			<Header class='h-10  z-50' />
+			<Header className='h-10  z-50' />
 			<SubHeader toggle={toggle} handleTG={handleToggle} />
-			<main class='flex-grow '>
+			<main className='flex-grow '>
 				{/* sadf */}
 				{children}
 			</main>
 			<footer
-				class='
+				className='
              inset-x-0
              bottom-0
              '>

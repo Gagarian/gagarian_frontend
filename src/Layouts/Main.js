@@ -10,7 +10,7 @@ const Main = ({ children, toggle, handleToggle }) => {
 	return (
 		<>
 			<Header className='h-10  z-50' />
-			<SubHeader toggle={toggle} handleTG={handleToggle} />
+			{/* <SubHeader toggle={toggle} handleTG={handleToggle} /> */}
 			<main className='flex-grow '>
 				{/* sadf */}
 				{children}

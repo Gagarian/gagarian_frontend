@@ -1,3 +1,117 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*/////////////Categories Cards ///////////////*/
+.cards {
+	display: grid;
+	margin: 48px;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	column-gap: 50px;
+	row-gap: 20px;
+}
+.cardscg {
+	width: 100%;
+	height: 250px;
+	display: grid;
+	cursor: pointer;
+	position: relative;
+	box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	grid-template-rows: 70% 30%;
+}
+.cardscg h1 {
+	font-size: 30px;
+	font-weight: 600;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+.ShopNowcg {
+	display: block;
+	position: absolute;
+	opacity: 0;
+	top: 40px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin-left: 30px;
+	font-weight: 600;
+	grid-row: 2/2;
+	outline-style: none;
+}
+.cardscg:hover .ShopNowcg {
+	position: relative;
+	transition: 0.5s all ease;
+	opacity: 1;
+	align-self: center; /*Vertical */
+	justify-self: start; /*Horizontal */
+	transform: translateY(-50px);
+}
+.cardscg:hover {
+	transform: scale(1.1);
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+	transition: 0.5s all ease;
+	border-radius: 8px;
+}
+.cardscg:hover * {
+	border-radius: 160px;
+	color: white;
+	z-index: 3;
+}
+.cardscg::after {
+	border-radius: 8px;
+
+	transition: 0.5s all ease;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 20px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	content: "";
+	opacity: 0;
+}
+.cardscg:hover::after {
+	display: block;
+	transition: 0.5s all ease;
+	transform: translateY(-20px);
+	left: 0;
+	right: 0;
+	opacity: 0.9;
+	z-index: 0;
+	background: linear-gradient(180deg, rgb(75, 57, 116), rgba(0, 0, 0, 0.493));
+}
+.ShopNowcg::after {
+	content: "";
+	transition: all 1s ease-out;
+	width: 0;
+	height: 3px;
+	position: absolute;
+	left: 50%;
+	right: 50%;
+	top: 100%;
+	background: white;
+}
+.cardscg:hover .ShopNowcg::after {
+	transition: all 1s ease-out;
+	width: 100%;
+	left: 0;
+	right: 0;
+}
+.cardscg:first-child {
+	background: url("https://media.istockphoto.com/photos/ethiopian-dinner-bread-picture-id536049837?b=1&k=20&m=536049837&s=170667a&w=0&h=sR9MCqmpCWrhC0TmgfW4Sb6QIRiGnb5nePARDlVa-KI=")
+		no-repeat center top/cover;
+}
+.cardscg:nth-child(2) {
+	background: url("https://media.istockphoto.com/photos/ethiopian-coffee-roasted-in-a-traditional-way-picture-id187694806?k=20&m=187694806&s=612x612&w=0&h=QHSeVjDTJTq9JbLcw5MEpaXx0TORrnHlHb2kUhpJ3uY=")
+		no-repeat center top/cover;
+}
+.cardscg:nth-child(3) {
+	background: url("https://media.gettyimages.com/photos/injera-ethiopia-picture-id953938420?k=20&m=953938420&s=612x612&w=0&h=7e0cTS0cD3WSPpBWGPCEQxwHAcLoA3DUfD3WnsaM5AU=")
+		no-repeat center top/cover;
+}
+.cardscg:nth-child(4) {
+	background: url("https://media.istockphoto.com/photos/ethiopian-dinner-bread-picture-id536049837?b=1&k=20&m=536049837&s=170667a&w=0&h=sR9MCqmpCWrhC0TmgfW4Sb6QIRiGnb5nePARDlVa-KI=")
+		no-repeat center top/cover;
+}

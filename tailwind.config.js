@@ -1,9 +1,12 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
 	content: ["./src/**/*.{js,jsx,ts,tsx}"],
 	theme: {
 		extend: {
 			fontFamily: {
 				// sans: ["Montserrat"],
+				sans: ["Prompt", ...defaultTheme.fontFamily.sans],
 			},
 			colors: {
 				red: {
@@ -300,12 +303,70 @@ module.exports = {
 				},
 			},
 			spacing: {
-				7: "1.75rem",
-				9: "2.25rem",
-				28: "7rem",
-				80: "20rem",
-				96: "24rem",
+				"9/16": "56.25%",
+				"3/4": "75%",
+				"1/1": "100%",
 			},
+			// spacing: {
+			// 	7: "1.75rem",
+			// 	9: "2.25rem",
+			// 	28: "7rem",
+			// 	80: "20rem",
+			// 	96: "24rem",
+			// },
+
+			inset: {
+				"1/2": "50%",
+				full: "100%",
+			},
+			letterSpacing: {
+				tighter: "-0.02em",
+				tight: "-0.01em",
+				normal: "0",
+				wide: "0.01em",
+				wider: "0.02em",
+				widest: "0.4em",
+			},
+			lineHeight: {
+				none: "1",
+				tighter: "1.125",
+				tight: "1.25",
+				snug: "1.375",
+				normal: "1.5",
+				relaxed: "1.625",
+				loose: "2",
+				3: ".75rem",
+				4: "1rem",
+				5: "1.2rem",
+				6: "1.5rem",
+				7: "1.75rem",
+				8: "2rem",
+				9: "2.25rem",
+				10: "2.5rem",
+			},
+			minWidth: {
+				10: "2.5rem",
+				48: "12rem",
+			},
+			opacity: {
+				90: "0.9",
+			},
+			scale: {
+				98: ".98",
+			},
+			animation: {
+				float: "float 3s ease-in-out infinite",
+			},
+			keyframes: {
+				float: {
+					"0%, 100%": { transform: "translateY(0)" },
+					"50%": { transform: "translateY(-5%)" },
+				},
+			},
+			zIndex: {
+				"-1": "-1",
+			},
+
 			height: {
 				"1/2": "50%",
 			},
@@ -322,6 +383,8 @@ module.exports = {
 		textColor: ["responsive", "hover", "focus", "group-hover"],
 		opacity: ["responsive", "hover", "focus", "group-hover"],
 		backgroundColor: ["responsive", "hover", "focus", "group-hover"],
+		translate: ["responsive", "hover", "focus", "group-hover"],
+		boxShadow: ["responsive", "hover", "focus", "focus-within"],
 	},
 	plugins: [require("daisyui")],
 };

@@ -8,6 +8,9 @@ import {
 	clearState,
 	productSelector,
 } from "../../Services/Slices/productSlice";
+import { Link } from "react-router-dom";
+import Catagories from "./Catagories";
+
 const Dashboard = ({ toggle, handleToggle }) => {
 	const dispatch = useDispatch();
 
@@ -20,12 +23,15 @@ const Dashboard = ({ toggle, handleToggle }) => {
 		<div>
 			<Main toggle={toggle} handleToggle={handleToggle}>
 				<section className='text-gray-600 body-font'>
+					<Carousel />
+					<Catagories />
 					<div className='container px-5 py-24 mx-auto'>
 						<div className='flex flex-wrap -m-4'>
-							<Carousel />
-							{result.map((item, index) => (
-								<DashboardCard key={index} item={item} />
-							))}{" "}
+							{result !== null
+								? result.map((item, index) => (
+										<DashboardCard key={index} item={item} />
+								  ))
+								: ""}
 						</div>
 					</div>
 				</section>

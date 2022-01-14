@@ -1,14 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getCatagories } from "../../api/api";
 const initialState = {
-	movies: [],
+	catagoires: [],
 };
 
 export const retrievecatagories = createAsyncThunk(
 	"catagories/retrievecatagories",
-	async () => {
-		// logger(ss)
-		return (await getCatagories()).data;
+	async (rejectWithValue) => {
+		try {
+			const response = await getCatagories();
+			return response.data;
+		} catch (error) {
+			return rejectWithValue(error);
+		}
 	},
 );
 
@@ -21,10 +25,11 @@ const catagoriesSlice = createSlice({
 		// return { ...state, movies: payload };
 		// },
 		[retrievecatagories.fulfilled]: (state, { payload }) => {
-			return { ...state, movies: payload };
+			return { ...state, catagoires: payload };
 		},
 	},
 });
 
+export const catagoiesSelector = (state) => state.catagories;
 const { reducer } = catagoriesSlice;
 export default reducer;

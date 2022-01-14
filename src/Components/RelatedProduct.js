@@ -1,23 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { AddShoppingCart } from "@material-ui/icons";
-// src={item.image}
-// <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-//             {item.category.name}
-//           </h2>
 
-//            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
-//             {item.name}
-//           </h1>
-
-const DashboardCard = ({ item }) => {
-  console.log(item);
+const RelatedProduct = () => {
   let navigate = useNavigate();
   return (
-    <div
-      onClick={() => navigate(`/Catagories/${index}`)}
-      class="flex flex-col items-center justify-center max-w-sm mx-auto"
-    >
+    <div class="flex flex-col items-center justify-center max-w-sm mx-auto">
       <div
         class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
         style={{
@@ -42,4 +29,4 @@ const DashboardCard = ({ item }) => {
   );
 };
 
-export default DashboardCard;
+export default RelatedProduct;

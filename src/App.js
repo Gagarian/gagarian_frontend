@@ -38,6 +38,10 @@ function App() {
             element={<Catagories toggle={toggle} handleToggle={handleToggle} />}
           />
           <Route
+            path="/item/:id"
+            element={<Item toggle={toggle} handleToggle={handleToggle} />}
+          />
+          <Route
             path="*"
             element={
               <main style={{ padding: "1rem" }}>

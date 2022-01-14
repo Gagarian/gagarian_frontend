@@ -9,6 +9,7 @@ import {
 	productSelector,
 } from "../../Services/Slices/productSlice";
 import { Link } from "react-router-dom";
+import Catagories from "./Catagories";
 
 const Dashboard = ({ toggle, handleToggle }) => {
 	const dispatch = useDispatch();
@@ -21,26 +22,6 @@ const Dashboard = ({ toggle, handleToggle }) => {
 	return (
 		<div>
 			<Main toggle={toggle} handleToggle={handleToggle}>
-				<div className='cards'>
-					<div className='cardscg'>
-						<h1 className='text-white'>Injera</h1>
-						<Link to={`/Shop/?cg=`} className='ShopNowcg'>
-							Shop Now
-						</Link>
-					</div>
-					<div className='cardscg'>
-						<h1 className='text-white'>Injera</h1>
-						<Link to={`/Shop/?cg=`} className='ShopNowcg'>
-							Shop Now
-						</Link>
-					</div>
-					<div className='cardscg'>
-						<h1 className='text-orange-600'>Injera</h1>
-						<Link to={`/Shop/?cg=`} className='ShopNowcg'>
-							Shop Now
-						</Link>
-					</div>
-				</div>
 				<section className='text-gray-600 body-font'>
 					<div className='container px-5 py-24 mx-auto'>
 						<div className='flex flex-wrap -m-4'>
@@ -51,6 +32,7 @@ const Dashboard = ({ toggle, handleToggle }) => {
 								: ""}
 						</div>
 					</div>
+					<Catagories />
 				</section>
 			</Main>
 		</div>

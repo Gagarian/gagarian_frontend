@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /*/////////////Categories Cards ///////////////*/
+/* TODO Convert to Tailwind */
 .cards {
 	display: grid;
 	margin: 48px;
@@ -98,20 +99,4 @@
 	width: 100%;
 	left: 0;
 	right: 0;
-}
-.cardscg:first-child {
-	background: url("https://media.istockphoto.com/photos/ethiopian-dinner-bread-picture-id536049837?b=1&k=20&m=536049837&s=170667a&w=0&h=sR9MCqmpCWrhC0TmgfW4Sb6QIRiGnb5nePARDlVa-KI=")
-		no-repeat center top/cover;
-}
-.cardscg:nth-child(2) {
-	background: url("https://media.istockphoto.com/photos/ethiopian-coffee-roasted-in-a-traditional-way-picture-id187694806?k=20&m=187694806&s=612x612&w=0&h=QHSeVjDTJTq9JbLcw5MEpaXx0TORrnHlHb2kUhpJ3uY=")
-		no-repeat center top/cover;
-}
-.cardscg:nth-child(3) {
-	background: url("https://media.gettyimages.com/photos/injera-ethiopia-picture-id953938420?k=20&m=953938420&s=612x612&w=0&h=7e0cTS0cD3WSPpBWGPCEQxwHAcLoA3DUfD3WnsaM5AU=")
-		no-repeat center top/cover;
-}
-.cardscg:nth-child(4) {
-	background: url("https://media.istockphoto.com/photos/ethiopian-dinner-bread-picture-id536049837?b=1&k=20&m=536049837&s=170667a&w=0&h=sR9MCqmpCWrhC0TmgfW4Sb6QIRiGnb5nePARDlVa-KI=")
-		no-repeat center top/cover;
 }

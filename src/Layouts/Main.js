@@ -6,7 +6,6 @@ import SubHeader from "../Components/SubHeader";
 import { useNavigate } from "react-router-dom";
 
 const Main = ({ children, toggle, handleToggle }) => {
-	console.log(toggle);
 	return (
 		<>
 			<Header className='h-10  z-50' />

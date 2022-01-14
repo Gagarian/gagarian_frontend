@@ -20,7 +20,7 @@ const CatagoriesCard = ({ id, name, image, description }) => {
 				backgroundSize: "cover",
 				backgroundRepeat: "no-repeat",
 			}}
-			onClick={() => navigate(`/catagories/${name}`)}>
+			onClick={() => navigate(`/catagories?cg=${name}`)}>
 			<h1 className='text-white'>{name}</h1>
 			<Link to={`/Shop/?cg=`} className='ShopNowcg'>
 				Shop Now

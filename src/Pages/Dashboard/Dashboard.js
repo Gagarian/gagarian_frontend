@@ -19,9 +19,9 @@ const Dashboard = ({ toggle, handleToggle }) => {
   return (
     <div>
       <Main toggle={toggle} handleToggle={handleToggle}>
-        <section class="text-gray-600 body-font">
-          <div class="container px-5 py-24 mx-auto">
-            <div class="flex flex-wrap -m-4">
+        <section className="text-gray-600 body-font">
+          <div className="container px-5 py-24 mx-auto">
+            <div className="flex flex-wrap -m-4">
               <Carousel />
               {result.map((item, index) => (
                 <DashboardCard key={index} item={item} />

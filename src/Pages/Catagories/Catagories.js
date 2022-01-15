@@ -11,6 +11,7 @@ import {
 import { catagoiesSelector } from "../../Services/Slices/catagoriesSlice";
 import _ from "lodash";
 import { getAllProductsByCatagories } from "../../api/api";
+import SidePanel from "../../Components/SidePanel";
 const Catagories = ({ toggle, handleToggle }) => {
 	const [searchParams] = useSearchParams();
 	const current = searchParams.get("cg");
@@ -18,34 +19,31 @@ const Catagories = ({ toggle, handleToggle }) => {
 	const { catagoires } = useSelector(catagoiesSelector);
 	const [result, setResult] = useState([]);
 	useEffect(() => {
+		window.scrollTo(0, 0);
 		async function fetchMyAPI() {
 			let catItem = _.find(catagoires, { name: current });
 			let res = _.isUndefined(catItem) ? -1 : catItem["id"];
 			const response = await getAllProductsByCatagories(res);
 			setResult(response.data.results);
-			console.log(response);
 		}
 
 		fetchMyAPI();
-	}, []);
+	}, [current]);
 
 	return (
 		<div>
 			<Main toggle={toggle} handleToggle={handleToggle}>
 				{/* <h1>{temp}</h1> */}
 				<section className='text-gray-400  body-font overflow-hidden'>
-					<div className='container px-5 py-24 mx-auto'>
-						<div class='flex flex-wrap justify-center -mx-4'>
+					<div className='flex flex-row px-5 py-24 mx-auto items-center justify-between'>
+						<SidePanel current={current} />
+						<div className=' -mx-4 Gridcards'>
 							{result !== null
-								? result.map((item) => <CatagoriesCard {...item} />)
+								? result.map((item, index) => (
+										<CatagoriesCard key={index} {...item} />
+								  ))
 								: "No Product"}
 						</div>
-						{/* <CatagoriesCard /> */}
-
-						{/* <CatagoriesCard /> */}
-						{/* <CatagoriesCard /> */}
-						{/* <CatagoriesCard /> */}
-						{/* <CatagoriesCard /> */}
 					</div>
 				</section>
 			</Main>

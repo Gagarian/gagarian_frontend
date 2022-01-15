@@ -11,9 +11,9 @@ import {
 } from "../../Services/Slices/productSlice";
 import { Link } from "react-router-dom";
 import Catagories from "./Catagories";
-import ReactPaginate from "react-paginate";
 import { getAllProducts } from "../../api/api";
 import toast from "react-hot-toast";
+import Paginate from "../../Components/Paginate";
 
 const Dashboard = ({ toggle, handleToggle }) => {
 	const dispatch = useDispatch();
@@ -83,32 +83,8 @@ const Dashboard = ({ toggle, handleToggle }) => {
 								: ""}
 						</div>
 					</div>
-					<ReactPaginate
-						previousLabel={"previous"}
-						nextLabel={"next"}
-						breakLabel={"..."}
-						pageCount={pageCount}
-						marginPagesDisplayed={1}
-						pageRangeDisplayed={pageCount}
-						onPageChange={handlePageClick}
-						containerClassName={"flex"}
-						pageLinkClassName={
-							"px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white"
-						}
-						previousLinkClassName={
-							"px-4 py-2 font-bold text-gray-500 bg-gray-300 rounded-md hover:bg-blue-400 hover:text-white"
-						}
-						// previousLinkClassName={"page-link"}
-						nextLinkClassName={
-							"px-4 py-2 font-bold text-gray-500 bg-gray-300 rounded-md hover:bg-blue-400 hover:text-white"
-						}
-						// nextLinkLinkClassName={"page-link"}
-						breakLinkClassName={
-							"px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-blue-400 hover:text-white"
-						}
-						// breakLinkLinkClassName={"page-link"}
-						activeLinkClassName={" bg-green-500"}
-					/>
+
+					<Paginate pageCount={pageCount} handlePageClick={handlePageClick} />
 				</section>
 			</Main>
 		</div>

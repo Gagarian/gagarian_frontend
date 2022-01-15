@@ -113,3 +113,18 @@ html {
 	left: 0;
 	right: 0;
 }
+
+/* Card Grid Layout */
+.Gridcards {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 1fr;
+	grid-column-gap: 0px;
+	justify-items: center;
+	grid-row-gap: 0px;
+	/* display: grid; */
+	/* grid-template-columns: repeat(5, 1fr); */
+	/* grid-template-rows: repeat(5, 1fr); */
+	/* grid-column-gap: 0px; */
+	/* grid-row-gap: 0px; */
+}

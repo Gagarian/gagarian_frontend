@@ -22,18 +22,6 @@ export const getProducts = createAsyncThunk(
 	},
 );
 
-export const getProductsByCatagories = createAsyncThunk(
-	"product/getAllProductsByCatagories",
-	async ({ id }, { rejectWithValue }) => {
-		try {
-			const response = await getProductsByCatagories();
-			return response.data;
-		} catch (error) {
-			return rejectWithValue(error);
-		}
-	},
-);
-
 const productSlice = createSlice({
 	name: "product",
 	initialState: initailState,
@@ -52,23 +40,6 @@ const productSlice = createSlice({
 			state.errorMessage = payload.message;
 		},
 		[getProducts.fulfilled]: (state, { payload }) => {
-			return {
-				...state,
-				result: payload.results,
-				count: payload.count,
-				next: payload.next,
-				previous: null,
-				isError: false,
-				isFetching: false,
-			};
-		},
-		[getProductsByCatagories.pending]: (state) => {
-			state.isFetching = true;
-		},
-		[getProductsByCatagories.rejected]: (state, { payload }) => {
-			state.errorMessage = payload.message;
-		},
-		[getProductsByCatagories.fulfilled]: (state, { payload }) => {
 			return {
 				...state,
 				result: payload.results,

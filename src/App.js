@@ -7,6 +7,7 @@ import "./App.css";
 import Catagories from "./Pages/Catagories/Catagories";
 import Item from "./Pages/Item/Item";
 import Cart from "./Pages/Cart/Cart";
+import Purchase from "./Pages/Cart/Purchase";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
@@ -46,6 +47,7 @@ function App() {
 					/>
 					<Route path='/item/:id' element={<Item />} />
 					<Route path='/cart' element={<Cart />} />
+					<Route path='/purchase' element={<Purchase />} />
 					<Route
 						path='*'
 						element={

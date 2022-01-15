@@ -53,7 +53,7 @@ const Cart = () => {
           <span>$43</span>
         </div>
         <div>
-          <btn block className="checkout__subtotal__button" onClick={() => navigate('#')}>
+          <btn block className="checkout__subtotal__button" onClick={() => navigate('/purchase')}>
             Proceed to checkout
           </btn>
         </div>

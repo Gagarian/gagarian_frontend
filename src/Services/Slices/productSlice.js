@@ -4,6 +4,7 @@ import { getAllProducts } from "../../api/api";
 const initailState = {
 	result: null,
 	isFetching: false,
+	isSuccess: false,
 	count: null,
 	next: null,
 	previous: null,
@@ -12,9 +13,10 @@ const initailState = {
 
 export const getProducts = createAsyncThunk(
 	"product/getAllProducts",
-	async (rejectWithValue) => {
+	async (id, { rejectWithValue }) => {
 		try {
-			const response = await getAllProducts();
+			let page = id || 1;
+			const response = await getAllProducts(page);
 			return response.data;
 		} catch (error) {
 			return rejectWithValue(error);
@@ -35,9 +37,11 @@ const productSlice = createSlice({
 	extraReducers: {
 		[getProducts.pending]: (state) => {
 			state.isFetching = true;
+			state.isSuccess = false;
 		},
 		[getProducts.rejected]: (state, { payload }) => {
-			state.errorMessage = payload.message;
+			state.isFetching = false;
+			state.errorMessage = payload;
 		},
 		[getProducts.fulfilled]: (state, { payload }) => {
 			return {
@@ -45,6 +49,7 @@ const productSlice = createSlice({
 				result: payload.results,
 				count: payload.count,
 				next: payload.next,
+				isSuccess: true,
 				previous: null,
 				isError: false,
 				isFetching: false,

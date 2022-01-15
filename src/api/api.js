@@ -29,10 +29,10 @@ function userLogin(username, password) {
 	return axios(config);
 }
 
-function getAllProducts() {
+function getAllProducts(id) {
 	var config = {
 		method: "get",
-		url: `${requestUrl}/products/`,
+		url: `${requestUrl}/products/?page=${id}`,
 		// headers: {
 		// 	"Content-Type": "application/json",
 		// },

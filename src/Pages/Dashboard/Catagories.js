@@ -41,7 +41,7 @@ const Catagories = () => {
 			<div className='cards'>
 				{catagoires !== null
 					? _.orderBy(catagoires, ["id"], ["asc"]).map((item, index) => (
-							<CatagoriesCard {...item} />
+							<CatagoriesCard key={item.id} {...item} />
 					  ))
 					: ""}
 			</div>

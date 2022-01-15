@@ -40,10 +40,11 @@ function getAllProducts(id) {
 	return axios(config);
 }
 
-function getAllProductsByCatagories(id) {
+function getAllProductsByCatagories(id, page) {
+	let pageNum = page || 1;
 	var config = {
 		method: "get",
-		url: `${requestUrl}/itemsbycategory/${id}/`,
+		url: `${requestUrl}/itemsbycategory/${id}/?page=${pageNum}`,
 		// headers: {
 		// 	"Content-Type": "application/json",
 		// },

@@ -2,11 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { userSelector, clearState } from "../Services/Slices/userSlice";
 import { ShoppingCart } from "@material-ui/icons";
-const Header = () => {
+const Header = ({ gone }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { isSuccess } = useSelector(userSelector);
 	const dispatch = useDispatch();
+	// console.log(visiableGone);
+	const goneParm = gone || false;
 	const [top, setTop] = useState(true);
+	const [visiableGone, setvisiableGone] = useState(!top);
+	const visiableStyle = visiableGone ? "hidden" : "visible";
+
 	const handleLogout = () => {
 		// TODO Save Token
 		// localStorage.setItem("token", response.data.key);
@@ -20,8 +25,15 @@ const Header = () => {
 			window.pageYOffset > 10 ? setTop(false) : setTop(true);
 		};
 		window.addEventListener("scroll", scrollHandler);
+		if (!top) {
+			setvisiableGone(true);
+		} else {
+			setvisiableGone(false);
+		}
+
 		return () => window.removeEventListener("scroll", scrollHandler);
 	}, [top]);
+
 	return (
 		// <nav className='bg-white shadow dark:bg-gray-800'>
 		<header
@@ -48,7 +60,7 @@ const Header = () => {
 					<div>
 						<a
 							className='text-2xl font-semibold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300'
-							href='#'>
+							href='/'>
 							Gagarian
 						</a>
 					</div>
@@ -107,7 +119,7 @@ const Header = () => {
 			</div>
 			{/* SubHeader */}
 
-			<nav className=''>
+			<nav className={!goneParm ? visiableStyle : "hidden"}>
 				<div className='container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300'>
 					<a
 						href='#'

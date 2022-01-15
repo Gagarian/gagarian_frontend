@@ -19,7 +19,7 @@ const DashboardSampleProductBar = () => {
 
 	return (
 		<div>
-			{/* <a
+			<a
 				className='text-2xl font-bold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300'
 				href='#'>
 				Popular products
@@ -27,12 +27,14 @@ const DashboardSampleProductBar = () => {
 			<ul className='grid grid-flow-col text-center text-gray-500 bg-gray-100 rounded-lg p-1'>
 				{_.isNil(catagoires)
 					? "  "
-					: catagoires.map(({ name }) => (
-							<li onClick={() => navigate(`/catagories?cg=${name}`)}>
+					: catagoires.map(({ name }, index) => (
+							<li
+								key={index}
+								onClick={() => navigate(`/catagories?cg=${name}`)}>
 								<a className='flex justify-center py-4'>{name}</a>
 							</li>
 					  ))}
-			</ul> */}
+			</ul>
 		</div>
 	);
 };

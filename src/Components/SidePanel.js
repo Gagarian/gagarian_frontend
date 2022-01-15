@@ -33,15 +33,6 @@ const SidePanel = ({ current }) => {
 
 			<div className='flex flex-col justify-between flex-1 mt-6'>
 				<nav>
-					{catagoires != null
-						? _.sortBy(catagoires, ["id"]).map((item, index) => (
-								<SidePanelCard key={index} {...item} current={current} />
-						  ))
-						: ""}
-
-					{/* Border Divider */}
-					<hr className='my-6 border-gray-200 dark:border-gray-600' />
-
 					<a
 						className='flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700'
 						href='#'>
@@ -61,6 +52,15 @@ const SidePanel = ({ current }) => {
 
 						<span className='mx-4 font-medium'>Packages</span>
 					</a>
+
+					{/* Border Divider */}
+					<hr className='my-3 border-gray-200 dark:border-gray-600' />
+
+					{catagoires != null
+						? _.sortBy(catagoires, ["id"]).map((item, index) => (
+								<SidePanelCard key={index} {...item} current={current} />
+						  ))
+						: ""}
 				</nav>
 			</div>
 		</div>

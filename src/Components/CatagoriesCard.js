@@ -2,55 +2,50 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const CatagoriesCard = () => {
-	let navigate = useNavigate();
-	return (
-		<div class='max-w-2xl mx-auto overflow-hidden flex-reverse bg-white rounded-lg shadow-md dark:bg-gray-800'>
-			<img
-				class='object-cover w-full h-64'
-				src='https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
-				alt='Article'
-			/>
-
-			<div class='p-6'>
-				<div>
-					<span class='text-xs font-medium text-blue-600 uppercase dark:text-blue-400'>
-						Product
-					</span>
-					<a
-						href='#'
-						class='block mt-2 text-2xl font-semibold text-gray-800 transition-colors duration-200 transform dark:text-white hover:text-gray-600 hover:underline'>
-						I Built A Successful Blog In One Year
-					</a>
-					<p class='mt-2 text-sm text-gray-600 dark:text-gray-400'>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie
-						parturient et sem ipsum volutpat vel. Natoque sem et aliquam mauris
-						egestas quam volutpat viverra. In pretium nec senectus erat. Et
-						malesuada lobortis.
-					</p>
-				</div>
-
-				<div class='mt-4'>
-					<div class='flex items-center'>
-						<div class='flex items-center'>
-							<img
-								class='object-cover h-10 rounded-full'
-								src='https://images.unsplash.com/photo-1586287011575-a23134f797f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=48&q=60'
-								alt='Avatar'
-							/>
-							<a
-								href='#'
-								class='mx-2 font-semibold text-gray-700 dark:text-gray-200'>
-								Jone Doe
-							</a>
-						</div>
-						<span class='mx-1 text-xs text-gray-600 dark:text-gray-300'>
-							21 SEP 2015
-						</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+  let navigate = useNavigate();
+  return (
+    <section class="text-gray-600 body-font overflow-hidden">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="-my-8 divide-y-2 divide-gray-100">
+          <div class="py-8 flex flex-wrap md:flex-nowrap">
+            <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+              <img
+                alt="ecommerce"
+                className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+                src="https://media.istockphoto.com/photos/injera-a-staple-food-of-ethiopia-picture-id1131817698?k=20&m=1131817698&s=612x612&w=0&h=N-CCH8dg8uEFDdDW_h_oCSFpbWz0DHscqukukBIaNS0="
+              />
+            </div>
+            <div class="md:flex-grow">
+              <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">
+                Bitters hashtag waistcoat fashion axe chia unicorn
+              </h2>
+              <p class="leading-relaxed">
+                Glossier echo park pug, church-key sartorial biodiesel
+                vexillologist pop-up snackwave ramps cornhole. Marfa 3 wolf moon
+                party messenger bag selfies, poke vaporware kombucha
+                lumbersexual pork belly polaroid hoodie portland craft beer.
+              </p>
+              <a class="text-indigo-500 inline-flex items-center mt-4">
+                Learn More
+                <svg
+                  class="w-4 h-4 ml-2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default CatagoriesCard;

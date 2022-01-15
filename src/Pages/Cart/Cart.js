@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Main from "../../Layouts/Main"
 import {useNavigate} from 'react-router-dom';
-
+import CheckOutCard  from "../../Components/CheckOutCard";
 const Cart = () => {
 //   const cartItems = useSelector((state) => selectCartItems(state));
 //   const cartCount = useSelector((state) => selectCartItemsCount(state));
@@ -18,27 +18,26 @@ const Cart = () => {
       <Main>
     <div className="checkout">
       <div className="checkout__cart">
-          
+
         <div className="checkout__cart__title">
           <span>Shopping Cart</span>
           <span>Price</span>
         </div>
         
+        
             <div>
-            {/* <CheckoutCard productId={productId} {...props} /> */}
+              <CheckOutCard />
               <div className="checkout__cart__card" />
             </div>
           
          
-          <div className="checkout__cart__message">
+          {/* <div className="checkout__cart__message">
             <p>Your Amazon Cart is empty.</p>
             <span>
               Check your Saved for later items below or{" "}
-             
                 <span>continue shopping</span>
-             
             </span>
-          </div>
+          </div> */}
         
        
           <div className="checkout__cart__subtotal">

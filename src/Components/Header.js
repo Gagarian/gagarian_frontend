@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { userSelector, clearState } from "../Services/Slices/userSlice";
-import { ShoppingCart } from "@material-ui/icons";
+import { useTranslation } from 'react-i18next';
+// import { ShoppingCart } from "@material-ui/icons";
 const Header = () => {
+	const { t, i18n } = useTranslation();
+	function handleClick(lang) {
+		i18n.changeLanguage(lang)
+	}
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { isSuccess } = useSelector(userSelector);
 	const dispatch = useDispatch();
@@ -49,7 +54,7 @@ const Header = () => {
 						<a
 							class='text-2xl font-semibold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300'
 							href='#'>
-							Gagarian
+							{t('Main.1')}
 						</a>
 					</div>
 
@@ -112,25 +117,26 @@ const Header = () => {
 					<a
 						href='#'
 						class='text-gray-800 transition-colors duration-200 transform dark:text-gray-200 border-b-2 border-blue-500 mx-1.5 sm:mx-6'>
-						home
+
+						{t('Translate.1')}
 					</a>
 
 					<a
 						href='#'
 						class='border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6'>
-						features
+						{t('Translate.2')}
 					</a>
 
 					<a
 						href='#'
 						class='border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6'>
-						pricing
+						{t('Translate.3')}
 					</a>
 
 					<a
 						href='#'
 						class='border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6'>
-						blog
+						{t('Translate.4')}
 					</a>
 
 					<a
@@ -162,6 +168,10 @@ const Header = () => {
 							<path d='m21.308 6.464c.993 0 .992-1.5 0-1.5h-5.87c-.993 0-.992 1.5 0 1.5z' />
 						</svg>
 					</a>
+		
+					<button onClick={()=>handleClick('en')} >English</button>
+					<button onClick={()=>handleClick('am')} >Amharic</button>
+
 				</div>
 			</nav>
 		</header>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Suspense} from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { store, persistor } from "./store";
@@ -6,12 +6,16 @@ import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
+import './i18next'
+
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<PersistGate loading={null} persistor={persistor}>
 				<BrowserRouter>
+				<Suspense fallback={(<div>Loading ----</div>)}>
 					<App />
+				</Suspense>
 				</BrowserRouter>
 			</PersistGate>
 		</Provider>

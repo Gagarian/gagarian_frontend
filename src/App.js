@@ -8,7 +8,7 @@ import Catagories from "./Pages/Catagories/Catagories";
 import Item from "./Pages/Item/Item";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-
+import { useTranslation } from 'react-i18next';
 function App() {
 	let navigate = useNavigate();
 
@@ -21,6 +21,12 @@ function App() {
 			navigate(`/Catagories/${index}`);
 		}
 	};
+
+	const { t, i18n } = useTranslation();
+	function handleClick(lang) {
+		i18n.changeLanguage(lang)
+	}
+
 	return (
 		<div className='App'>
 			<Toaster position='top-center' reverseOrder={false} />
@@ -48,6 +54,12 @@ function App() {
 					/>
 				</Route>
 			</Routes>
+			<button onClick={()=>handleClick('en')} >
+            English
+          </button>
+          <button onClick={()=>handleClick('am')} >
+            Amharic
+          </button>
 		</div>
 	);
 }

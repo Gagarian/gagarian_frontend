@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 const DashboardSampleProductBar = () => {
+  const { t, i18n } = useTranslation();
   return (
     <nav className="bg-white shadow dark:bg-gray-800">
       <div className="container px-6 py-3 mx-auto md:flex">
@@ -10,7 +12,7 @@ const DashboardSampleProductBar = () => {
               className="text-2xl font-bold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
               href="#"
             >
-              Popular products
+              <p>{t('Translate.5')}</p>
             </a>
           </div>
 
@@ -38,19 +40,19 @@ const DashboardSampleProductBar = () => {
               href="#"
               class="px-2 py-1 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded dark:text-gray-200 hover:bg-gray-900 hover:text-gray-100 md:mx-2"
             >
-              Injera
+              <p>{t('Translate.6')}</p>
             </a>
             <a
               href="#"
               class="px-2 py-1 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded dark:text-gray-200 hover:bg-gray-900 hover:text-gray-100 md:mx-2"
             >
-              Dabo
+              <p>{t('Translate.7')}</p>
             </a>
             <a
               href="#"
               class="px-2 py-1 text-sm font-medium text-gray-700 transition-colors duration-200 transform rounded dark:text-gray-200 hover:bg-gray-900 hover:text-gray-100 md:mx-2"
             >
-              Tela / Tej
+              <p>{t('Translate.8')}</p>
             </a>
           </div>
         </div>

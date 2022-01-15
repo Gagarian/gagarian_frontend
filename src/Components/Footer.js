@@ -1,7 +1,9 @@
 import React from "react";
 import logo from "../Assets/logo.svg";
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+	const { t, i18n } = useTranslation();
 	return (
 		<div className=' bg-gray-900'>
 			<div className='max-w-2xl mx-auto text-white py-10'>

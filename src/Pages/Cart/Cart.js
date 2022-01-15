@@ -23,7 +23,7 @@ const Cart = () => {
           <span>Shopping Cart</span>
           <span>Price</span>
         </div>
-        
+
         
             <div>
               <CheckOutCard />
@@ -53,7 +53,7 @@ const Cart = () => {
           <span>$43</span>
         </div>
         <div>
-          <btn block className="checkout__subtotal__button" onClick={() => navigate('https://www.google.com/')}>
+          <btn block className="checkout__subtotal__button" onClick={() => navigate('#')}>
             Proceed to checkout
           </btn>
         </div>

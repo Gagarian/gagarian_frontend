@@ -6,6 +6,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import "./App.css";
 import Catagories from "./Pages/Catagories/Catagories";
 import Item from "./Pages/Item/Item";
+import Cart from "./Pages/Cart/Cart";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
@@ -44,6 +45,7 @@ function App() {
 						element={<Catagories toggle={toggle} handleToggle={handleToggle} />}
 					/>
 					<Route path='/item/:id' element={<Item />} />
+					<Route path='/cart' element={<Cart />} />
 					<Route
 						path='*'
 						element={
@@ -54,12 +56,6 @@ function App() {
 					/>
 				</Route>
 			</Routes>
-			<button onClick={()=>handleClick('en')} >
-            English
-          </button>
-          <button onClick={()=>handleClick('am')} >
-            Amharic
-          </button>
 		</div>
 	);
 }

@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { userSelector, clearState } from "../Services/Slices/userSlice";
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from "react-router-dom";
 // import { ShoppingCart } from "@material-ui/icons";
 const Header = () => {
+	let navigate = useNavigate();
+
 	const { t, i18n } = useTranslation();
 	function handleClick(lang) {
 		i18n.changeLanguage(lang)
@@ -27,6 +30,8 @@ const Header = () => {
 		window.addEventListener("scroll", scrollHandler);
 		return () => window.removeEventListener("scroll", scrollHandler);
 	}, [top]);
+
+
 	return (
 		// <nav class='bg-white shadow dark:bg-gray-800'>
 		<header
@@ -59,7 +64,7 @@ const Header = () => {
 					</div>
 
 					<div class='flex md:hidden'>
-						<button
+						<button 
 							type='button'
 							class='text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400'
 							aria-label='toggle menu'>
@@ -73,7 +78,7 @@ const Header = () => {
 				</div>
 
 				<div class='flex items-center mt-4 md:mt-0'>
-					<button
+					<button onClick={() => navigate('/cart')}
 						class='hidden mx-4 text-gray-600 transition-colors duration-200 transform md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none'
 						aria-label='show notifications'>
 						<svg

@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { userSelector, clearState } from "../Services/Slices/userSlice";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { ShoppingCart } from "@material-ui/icons";
 const Header = ({ gone }) => {
+	let navigate = useNavigate();
+
+	const { t, i18n } = useTranslation();
+	function handleClick(lang) {
+		i18n.changeLanguage(lang);
+	}
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { isSuccess } = useSelector(userSelector);
 	const dispatch = useDispatch();
@@ -63,7 +71,7 @@ const Header = ({ gone }) => {
 							<a
 								className='text-2xl font-semibold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300'
 								href='/'>
-								Gagarian
+								{t("Main.1")}
 							</a>
 						</div>
 
@@ -83,6 +91,7 @@ const Header = ({ gone }) => {
 
 					<div className='flex items-center mt-4 md:mt-0'>
 						<button
+							onClick={() => navigate("/cart")}
 							className='hidden mx-4 text-gray-600 transition-colors duration-200 transform md:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none'
 							aria-label='show notifications'>
 							<svg
@@ -125,26 +134,26 @@ const Header = ({ gone }) => {
 					<div className='container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300'>
 						<a
 							href='#'
-							className='text-gray-800 transition-colors duration-200 transform dark:text-gray-200 border-b-2 border-blue-500 mx-1.5 sm:mx-6'>
-							home
+							class='text-gray-800 transition-colors duration-200 transform dark:text-gray-200 border-b-2 border-blue-500 mx-1.5 sm:mx-6'>
+							{t("Translate.1")}
 						</a>
 
 						<a
 							href='#'
-							className='border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6'>
-							features
+							class='border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6'>
+							{t("Translate.2")}
 						</a>
 
 						<a
 							href='#'
-							className='border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6'>
-							pricing
+							class='border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6'>
+							{t("Translate.3")}
 						</a>
 
 						<a
 							href='#'
-							className='border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6'>
-							blog
+							class='border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6'>
+							{t("Translate.4")}
 						</a>
 
 						<a
@@ -166,9 +175,9 @@ const Header = ({ gone }) => {
 
 						<a
 							href='#'
-							className='border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6'>
+							class='border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6'>
 							<svg
-								className='w-5 h-5 fill-current'
+								class='w-5 h-5 fill-current'
 								viewBox='0 0 24 24'
 								xmlns='http://www.w3.org/2000/svg'>
 								<path d='m.75 19h7.092c4.552 0 6.131-6.037 2.107-8.203 2.701-2.354 1.029-6.797-2.595-6.797h-6.604c-.414 0-.75.336-.75.75v13.5c0 .414.336.75.75.75zm.75-13.5h5.854c3.211 0 3.215 4.768 0 4.768h-5.854zm0 6.268h6.342c3.861 0 3.861 5.732 0 5.732h-6.342z' />
@@ -176,9 +185,11 @@ const Header = ({ gone }) => {
 								<path d='m21.308 6.464c.993 0 .992-1.5 0-1.5h-5.87c-.993 0-.992 1.5 0 1.5z' />
 							</svg>
 						</a>
+
+						<button onClick={() => handleClick("en")}>English</button>
+						<button onClick={() => handleClick("am")}>Amharic</button>
 					</div>
 				</nav>
-				{/* </div> */}
 			</div>
 		</header>
 	);

@@ -40,6 +40,17 @@ function getAllProducts(id) {
 	return axios(config);
 }
 
+function getAllCarts() {
+	var config = {
+		method: "get",
+		url: `${requestUrl}/cart/`,
+		// headers: {
+		// 	"Content-Type": "application/json",
+		// },
+	};
+	return axios(config);
+}
+
 function getAllProductsByCatagories(id, page) {
 	let pageNum = page || 1;
 	var config = {

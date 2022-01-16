@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Main from "../../Layouts/Main";
 import DashboardCard from "../../Components/DashboardCard";
-import Carousel from "../../Components/Carousel";
+import HomeCarousel from "../../Components/HomeCarousel";
 import DashboardSampleProductBar from "../../Components/DashboardSampleProductBar";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -14,12 +14,13 @@ import Catagories from "./Catagories";
 import { getAllProducts } from "../../api/api";
 import toast from "react-hot-toast";
 import Paginate from "../../Components/Paginate";
+import HeroSection from "./HeroSection";
+import Carousel from "react-elastic-carousel";
 
 const Dashboard = ({ toggle, handleToggle }) => {
 	const dispatch = useDispatch();
 	const { isFetching, errorMessage, isSuccess, result, count } =
 		useSelector(productSelector);
-
 	let limit = 3;
 	let toastWaiting;
 	const [pageCount, setpageCount] = useState(0);
@@ -37,6 +38,16 @@ const Dashboard = ({ toggle, handleToggle }) => {
 		// const data = await res.json();
 		dispatch(getProducts(currentPage));
 	};
+
+	const carouselRef = useRef(null);
+	const Loop = (currentItem) => {
+		if (currentItem.index == 1) {
+			setTimeout(() => {
+				carouselRef.current.goTo(0);
+			}, 4500);
+		}
+	};
+
 	useEffect(() => {
 		dispatch(getProducts());
 	}, [dispatch]);
@@ -70,7 +81,22 @@ const Dashboard = ({ toggle, handleToggle }) => {
 		<div>
 			<Main toggle={toggle} handleToggle={handleToggle}>
 				<section className='text-gray-600 body-font'>
-					<Carousel />
+					<Carousel
+						onChange={Loop}
+						ref={carouselRef}
+						showArrows={false}
+						enableSwipe={false}
+						enableMouseSwipe={false}
+						disableArrowsOnEnd={false}
+						pagination={false}
+						itemPadding={[5, 10]}
+						itemsToShow={1}
+						itemsToScroll={1}
+						enableAutoPlay
+						autoPlaySpeed={4500}>
+						<HomeCarousel />
+						<HeroSection />
+					</Carousel>
 					<Catagories />
 					<DashboardSampleProductBar />
 

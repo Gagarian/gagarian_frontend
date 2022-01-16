@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Main = ({ children, toggle, handleToggle, gone }) => {
 	return (
 		<>
-			<Header className='h-10  z-50' gone={gone} />
+			<Header className=' z-50' gone={gone} />
 			{/* <SubHeader toggle={toggle} handleTG={handleToggle} /> */}
 			<main className='flex-grow '>
 				{/* sadf */}

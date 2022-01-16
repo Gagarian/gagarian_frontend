@@ -149,13 +149,13 @@ const Header = ({ gone }) => {
 									<div className='w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full'>
 										<div class='dropdown dropdown-right dropdown-end'>
 											<img
-												tabindex='0'
+												tabIndex='0'
 												src='https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80'
 												className='object-cover w-full h-full'
 												alt='avatar'
 											/>
 											<ul
-												tabindex='0'
+												tabIndex='0'
 												class='p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52'>
 												<li>
 													<a>Item 1</a>

@@ -12,19 +12,27 @@ import {
 } from "../../Services/Slices/productSlice";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
-
-const Item = () => {
+import { useSearchParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { useParams } from "react-router";
+const Item = ({ props }) => {
 	const { result } = useSelector(productSelector);
+	const dispatch = useDispatch();
+
 	const [item, setItem] = useState(null);
+	const [searchParams, setSearchParams] = useSearchParams();
+	const { slug } = useParams();
 	useEffect(() => {
 		const fetchProducts = async () => {
-			const response = await getProduct("Barley-Teff-Injera");
+			const response = await getProduct(slug);
 			setItem(response.data);
 			toast.success("Fetch Successfully");
 		};
 		fetchProducts();
-		console.log(item);
-	}, []);
+		dispatch(getProducts(1));
+
+		console.log(result);
+	}, [dispatch]);
 
 	return (
 		<div>

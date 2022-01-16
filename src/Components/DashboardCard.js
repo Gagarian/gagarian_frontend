@@ -11,12 +11,12 @@ import { useTranslation } from "react-i18next";
 //             {item.name}
 //           </h1>
 
-const DashboardCard = ({ name, image1, id, price }) => {
+const DashboardCard = ({ name, image1, id, price, slug }) => {
 	let navigate = useNavigate();
 	const { t, i18n } = useTranslation();
 	return (
 		<div
-			onClick={() => navigate(`/item/${id}`)}
+			onClick={() => navigate(`/item/${slug}`)}
 			className='flex flex-col items-center justify-center max-w-sm mx-auto'>
 			<div
 				className='w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md'

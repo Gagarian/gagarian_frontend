@@ -41,122 +41,107 @@ const Login = () => {
 		}
 	}, [isError, isSuccess]);
 	return (
-		<div>
-			<section className='flex flex-col md:flex-row h-screen items-center'>
-				<div className='bg-indigo-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen'>
-					<img
-						src='https://source.unsplash.com/random'
-						alt=''
-						className='w-full h-full object-cover'
-					/>
-				</div>
-
-				<div
-					className='bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
-        flex items-center justify-center'>
-					<div className='w-full h-100'>
-						<h1 className='text-xl md:text-2xl font-bold leading-tight mt-12'>
-							Log in to your account
-						</h1>
-
-						<form className='mt-6' onSubmit={handleSubmit(onSubmit)}>
-							<div>
-								<label className='block text-gray-700'>Email Address</label>
-								<input
-									type='username'
-									{...register("username")}
-									id=''
-									placeholder='Enter Username'
-									className='w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none'
-									autofocus
-									autocomplete
-									required
-								/>
-							</div>
-
-							<div className='mt-4'>
-								<label className='block text-gray-700'>Password</label>
-								<input
-									type='password'
-									{...register("password")}
-									id=''
-									placeholder='Enter Password'
-									minlength='6'
-									className='w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
-                focus:bg-white focus:outline-none'
-									required
-								/>
-							</div>
-
-							<div className='text-right mt-2'>
-								<a
-									// href='#'
-									className='text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700'>
-									Forgot Password?
-								</a>
-							</div>
-
-							<button
-								type='submit'
-								className='w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg
-              px-4 py-3 mt-6'>
-								Log In
-							</button>
-						</form>
-
-						<hr className='my-6 border-gray-300 w-full' />
-
-						<button
-							type='button'
-							className='w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300'>
-							<div className='flex items-center justify-center'>
-								<svg
-									xmlns='http://www.w3.org/2000/svg'
-									className='w-6 h-6'
-									viewBox='0 0 48 48'>
-									<defs>
-										<path
-											id='a'
-											d='M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z'
-										/>
-									</defs>
-									<clipPath id='b'></clipPath>
-									<path
-										clip-path='url(#b)'
-										fill='#FBBC05'
-										d='M0 37V11l17 13z'
-									/>
-									<path
-										clip-path='url(#b)'
-										fill='#EA4335'
-										d='M0 11l17 13 7-6.1L48 14V0H0z'
-									/>
-									<path
-										clip-path='url(#b)'
-										fill='#34A853'
-										d='M0 37l30-23 7.9 1L48 0v48H0z'
-									/>
-									<path
-										clip-path='url(#b)'
-										fill='#4285F4'
-										d='M48 48L17 24l-4-3 35-10z'
-									/>
-								</svg>
-								<span className='ml-4'>Log in with Google</span>
-							</div>
-						</button>
-
-						<p className='mt-8'>
-							Need an account?{" "}
-							<a
-								href='#'
-								className='text-blue-500 hover:text-blue-700 font-semibold'>
-								Create an account
-							</a>
+		<div className='h-full overflow-hidden bg-gray-900'>
+			<div className='px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'>
+				<div className='flex flex-col items-center justify-between xl:flex-row'>
+					<div className='w-full max-w-xl mb-12 xl:pr-16 xl:mb-0 xl:w-7/12'>
+						<h2 className='capitalize max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none'>
+							from the hands of a<span className='text-blue-600'> mother</span>
+						</h2>
+						<p className='max-w-xl mb-4 text-base text-white md:text-lg'>
+							Gagarian is a united bakers company. The company sells both
+							locally and outside Ethiopia . You can get Gagarian Injera from
+							our local store or you can easily order in our site and get it
+							delivered where you are. We promise to deliver quality Injera
+							right from the hands of a mother. Currently, we are available in
+							Addis Ababa and stores in U.S.A.
 						</p>
+						<a
+							href='/'
+							aria-label=''
+							className='inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700'>
+							Learn more
+							<svg
+								className='inline-block w-3 ml-2'
+								fill='currentColor'
+								viewBox='0 0 12 12'>
+								<path d='M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z' />
+							</svg>
+						</a>
+					</div>
+					<div className='w-full max-w-xl xl:px-8 xl:w-5/12'>
+						<div className='relative'>
+							<svg
+								viewBox='0 0 52 24'
+								fill='currentColor'
+								className='absolute bottom-0 right-0 z-0 hidden w-32 -mb-8 -mr-20 text-teal-accent-400 lg:w-32 lg:-mr-16 sm:block'>
+								<defs>
+									<pattern
+										id='766323e1-e594-4ffd-a688-e7275079d540'
+										x='0'
+										y='0'
+										width='.135'
+										height='.30'>
+										<circle cx='1' cy='1' r='.7' />
+									</pattern>
+								</defs>
+								<rect
+									fill='url(#766323e1-e594-4ffd-a688-e7275079d540)'
+									width='52'
+									height='24'
+								/>
+							</svg>
+							<div className='relative bg-white rounded shadow-2xl p-7 sm:p-10'>
+								<h3 className='mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl'>
+									Sign up for updates
+								</h3>
+								<form>
+									<div className='mb-1 sm:mb-2'>
+										<label
+											htmlFor='name'
+											className='inline-block mb-1 font-medium'>
+											Name
+										</label>
+										<input
+											placeholder='John Doe'
+											required
+											type='text'
+											className='flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline'
+											id='name'
+											name='name'
+										/>
+									</div>
+									<div className='mb-1 sm:mb-2'>
+										<label
+											htmlFor='email'
+											className='inline-block mb-1 font-medium'>
+											E-mail
+										</label>
+										<input
+											placeholder='john.doe@example.org'
+											required
+											type='text'
+											className='flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline'
+											id='email'
+											name='email'
+										/>
+									</div>
+									<div className='mt-4 mb-2 sm:mb-4'>
+										<button
+											type='submit'
+											className='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'>
+											Subscribe
+										</button>
+									</div>
+									<p className='text-xs text-gray-600 sm:text-sm'>
+										We respect your privacy. Unsubscribe at any time.
+									</p>
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
-			</section>
+			</div>
 		</div>
 	);
 };

@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { userLogin } from "../../api/api";
-
+import { getUser, userLogin } from "../../api/api";
+import _ from "lodash";
 const initialState = {
 	username: null,
+	profile: [],
 	isFetching: false,
 	isSuccess: false,
 	isError: false,
@@ -15,10 +16,13 @@ export const loginUser = createAsyncThunk(
 	async ({ username, password }, { rejectWithValue }) => {
 		try {
 			const response = await userLogin(username, password);
+			let token = response.data.key;
+			const user = await getUser(token);
+			console.log(user.data);
 			localStorage.setItem("token", response.data.key);
-			// console.log(response);
+			console.log(_.merge(response.data, user.data));
 
-			return response.data;
+			return _.merge(response.data, { user: user.data });
 		} catch (error) {
 			return rejectWithValue(error);
 		}
@@ -51,8 +55,9 @@ const userSlice = createSlice({
 		[loginUser.fulfilled]: (state, { payload }) => {
 			return {
 				...state,
-				token: payload,
-				username: "teyouale",
+				token: payload.key,
+				username: payload.user.username,
+				profile: payload.user,
 				isSuccess: true,
 				isError: false,
 			};

@@ -22,7 +22,15 @@ const ItemCard = ({
           <img
             alt="ecommerce"
             className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-            src={image1}
+            src={`https://gagarianrest.herokuapp.com${image1}`}
+            // style={{
+            // 	background:
+            // 		"url( https://gagarianrest.herokuapp.com" + `${image1}` + ")",
+            // 	// background: "url( https://dummyimage.com/600x400/)",
+            // 	backgroundPosition: "center",
+            // 	backgroundSize: "cover",
+            // 	backgroundRepeat: "no-repeat",
+            // }}
           />
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">

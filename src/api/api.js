@@ -72,10 +72,23 @@ function getProduct(slug) {
 	};
 	return axios(config);
 }
+
+function getUser(token) {
+	var config = {
+		method: "get",
+		url: `${requestUrl}/rest-auth/user/`,
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `token ${token}`,
+		},
+	};
+	return axios(config);
+}
 export {
 	getCatagories,
 	userLogin,
 	getAllProducts,
 	getAllProductsByCatagories,
 	getProduct,
+	getUser,
 };

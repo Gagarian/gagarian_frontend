@@ -15,9 +15,9 @@ const CatagoriesCard = ({ id, name, image, description }) => {
 		<div
 			className='cardscg'
 			style={{
-				// background:
-				// 	"url( https://gagarianrest.herokuapp.com" + `${image}` + ")",
-				background: "url( https://dummyimage.com/600x400/)",
+				background:
+					"url( https://gagarianrest.herokuapp.com" + `${image}` + ")",
+				// background: "url( https://dummyimage.com/600x400/)",
 				backgroundPosition: "center",
 				backgroundSize: "cover",
 				backgroundRepeat: "no-repeat",

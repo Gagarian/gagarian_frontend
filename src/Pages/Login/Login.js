@@ -9,9 +9,13 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Loding from "../../Middlewares/Loding";
+import { useTranslation } from "react-i18next";
+
 import _ from "lodash";
 const Login = () => {
 	const dispatch = useDispatch();
+	const { t, i18n } = useTranslation();
+
 	let navigate = useNavigate();
 	const { register, handleSubmit } = useForm();
 
@@ -49,22 +53,17 @@ const Login = () => {
 					<div className='flex flex-col items-center justify-between xl:flex-row'>
 						<div className='w-full max-w-xl mb-12 xl:pr-16 xl:mb-0 xl:w-7/12'>
 							<h2 className='capitalize max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none'>
-								from the hands of a
-								<span className='text-blue-600'> mother</span>
+								{t("Translate.11")}
 							</h2>
 							<p className='max-w-xl mb-4 text-base text-white md:text-lg'>
-								Gagarian is a united bakers company. The company sells both
-								locally and outside Ethiopia . You can get Gagarian Injera from
-								our local store or you can easily order in our site and get it
-								delivered where you are. We promise to deliver quality Injera
-								right from the hands of a mother. Currently, we are available in
-								Addis Ababa and stores in U.S.A.
+								{t("Translate.10")}
 							</p>
 							<a
 								href='/'
 								aria-label=''
 								className='inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700'>
-								Learn more
+								{t("Main.1")}
+
 								<svg
 									className='inline-block w-3 ml-2'
 									fill='currentColor'
@@ -97,7 +96,7 @@ const Login = () => {
 								</svg>
 								<div className='relative bg-white rounded shadow-2xl p-7 sm:p-10'>
 									<h3 className='mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl'>
-										Sign up for updates
+										Sign up
 									</h3>
 									<form onSubmit={handleSubmit(onSubmit)}>
 										<div className='mb-1 sm:mb-2'>

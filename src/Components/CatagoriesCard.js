@@ -2,12 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Catagories from "../Pages/Catagories/Catagories";
 
-const CatagoriesCard = ({ name, id, image1, price }) => {
+const CatagoriesCard = ({ name, id, image1, price, slug }) => {
 	let navigate = useNavigate();
 	return (
 		<div
 			className='py-10 px-5 w-full  '
-			onClick={() => navigate(`/item/${id}`)}>
+			onClick={() => navigate(`/item/${slug}`)}>
 			<a className='block relative h-48 rounded overflow-hidden'>
 				<img
 					alt='ecommerce'

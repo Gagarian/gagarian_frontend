@@ -4,6 +4,7 @@ import DashboardCard from "../../Components/DashboardCard";
 import Carousel from "../../Components/Carousel";
 import DashboardSampleProductBar from "../../Components/DashboardSampleProductBar";
 import { useSelector, useDispatch } from "react-redux";
+import HeroSection from "../../Components/HeroSection";
 import {
   getProducts,
   clearState,
@@ -24,7 +25,7 @@ const Dashboard = ({ toggle, handleToggle }) => {
     <div>
       <Main toggle={toggle} handleToggle={handleToggle}>
         <section className="text-gray-600 body-font">
-          <Carousel />
+          <HeroSection />
           <Catagories />
           <DashboardSampleProductBar />
 

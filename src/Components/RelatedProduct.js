@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const RelatedProduct = () => {
   let navigate = useNavigate();
   return (
-    <div class="flex flex-col items-center justify-center max-w-sm mx-auto">
+    <div class="flex flex-col items-center justify-center max-w-sm mx-auto px-10 ">
       <div
         class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
         style={{

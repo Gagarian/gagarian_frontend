@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 const Package = () => {
   const dispatch = useDispatch();
-  const { result } = useSelector(productSelector);
+  const result = useSelector(productSelector);
   useEffect(() => {
     dispatch(getProducts());
     console.log(result);
@@ -76,11 +76,11 @@ const Package = () => {
                 </section>
               </div>
               <div className="flex flex-wrap -m-4 justify-between">
-                {result !== null
+                {/* {result !== null
                   ? result.map((item, index) => (
                       <RelatedProduct key={index} item={item} />
                     ))
-                  : ""}
+                  : ""} */}
               </div>
             </div>
           </div>

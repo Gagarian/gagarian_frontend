@@ -1,4 +1,4 @@
-import React, {Suspense} from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { store, persistor } from "./store";
@@ -6,16 +6,22 @@ import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
-import './i18next'
+import HashLoader from "react-spinners/HashLoader";
+import "./i18next";
 
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<PersistGate loading={null} persistor={persistor}>
 				<BrowserRouter>
-				<Suspense fallback={(<div>Loading ----</div>)}>
-					<App />
-				</Suspense>
+					<Suspense
+						fallback={
+							<div className='z-20 text-center bg-white flex justify-center items-center w-full h-screen'>
+								<HashLoader color={"#1e1e2c"} loading={true} size={40} />
+							</div>
+						}>
+						<App />
+					</Suspense>
 				</BrowserRouter>
 			</PersistGate>
 		</Provider>

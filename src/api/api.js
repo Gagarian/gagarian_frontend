@@ -62,4 +62,20 @@ function getAllProductsByCatagories(id, page) {
 	};
 	return axios(config);
 }
-export { getCatagories, userLogin, getAllProducts, getAllProductsByCatagories };
+function getProduct(slug) {
+	var config = {
+		method: "get",
+		url: `${requestUrl}/product/${slug}/`,
+		// headers: {
+		// 	"Content-Type": "application/json",
+		// },
+	};
+	return axios(config);
+}
+export {
+	getCatagories,
+	userLogin,
+	getAllProducts,
+	getAllProductsByCatagories,
+	getProduct,
+};

@@ -1,7 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const ItemCard = () => {
+const ItemCard = ({
+	id,
+	name,
+	slug,
+	available,
+	price,
+	description,
+	image1,
+	image2,
+	image3,
+	category,
+}) => {
 	let navigate = useNavigate();
 	return (
 		<section className='text-gray-600 body-font overflow-hidden'>
@@ -14,10 +25,10 @@ const ItemCard = () => {
 					/>
 					<div className='lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0'>
 						<h2 className='text-sm title-font text-gray-500 tracking-widest'>
-							BRAND NAME
+							{name}
 						</h2>
 						<h1 className='text-gray-900 text-3xl title-font font-medium mb-1'>
-							Injera
+							{category.name}
 						</h1>
 						<div className='flex mb-4'>
 							<span className='flex items-center'>

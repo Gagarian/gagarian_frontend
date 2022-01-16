@@ -22,7 +22,7 @@ const Dashboard = ({ toggle, handleToggle }) => {
   const dispatch = useDispatch();
   const { isFetching, errorMessage, isSuccess, result, count } =
     useSelector(productSelector);
-  let limit = 3;
+  let limit = 10;
   let toastWaiting;
   const [pageCount, setpageCount] = useState(0);
 
